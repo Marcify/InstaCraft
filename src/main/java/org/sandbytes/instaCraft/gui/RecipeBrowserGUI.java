@@ -27,6 +27,7 @@ public class RecipeBrowserGUI {
     private static final Map<UUID, Integer> playerPages = new ConcurrentHashMap<>();
     private static final Map<UUID, String> playerSearches = new ConcurrentHashMap<>();
     private static final Map<UUID, Integer> searchTimeoutTasks = new ConcurrentHashMap<>();
+    private static final Map<UUID, Boolean> searchFromGUI = new ConcurrentHashMap<>();
 
     public static void openBrowser(Player player, int page) {
         openBrowser(player, page, null);
@@ -221,18 +222,26 @@ public class RecipeBrowserGUI {
     }
 
     public static void setAwaitingSearch(UUID playerId) {
+        setAwaitingSearch(playerId, false);
+    }
+
+    public static void setAwaitingSearch(UUID playerId, boolean fromGUI) {
         playerSearches.put(playerId, "PENDING");
+        searchFromGUI.put(playerId, fromGUI);
         
         int taskId = Bukkit.getScheduler().runTaskLater(InstaCraft.getInstance(), () -> {
             if (isAwaitingSearch(playerId)) {
                 playerSearches.remove(playerId);
                 searchTimeoutTasks.remove(playerId);
+                boolean wasFromGUI = searchFromGUI.remove(playerId) == Boolean.TRUE;
                 
                 Player player = Bukkit.getPlayer(playerId);
                 if (player != null && player.isOnline()) {
                     player.sendMessage(ColorUtils.colorize(
                             MessagesConfig.getInstance().getMessage("search_expired")));
-                    openBrowser(player, getPlayerPage(playerId));
+                    if (wasFromGUI) {
+                        openBrowser(player, getPlayerPage(playerId));
+                    }
                 }
             }
         }, SEARCH_TIMEOUT_SECONDS * 20L).getTaskId();
@@ -247,6 +256,10 @@ public class RecipeBrowserGUI {
         if (taskId != null) {
             Bukkit.getScheduler().cancelTask(taskId);
         }
+    }
+
+    public static boolean wasSearchFromGUI(UUID playerId) {
+        return searchFromGUI.remove(playerId) == Boolean.TRUE;
     }
 
     public static String getSearchFilter(UUID playerId) {

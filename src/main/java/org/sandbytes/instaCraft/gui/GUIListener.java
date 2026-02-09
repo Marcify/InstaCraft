@@ -66,7 +66,7 @@ public class GUIListener implements Listener {
         }
         if (slot == searchSlot && guiConfig.isSearchEnabled()) {
             player.closeInventory();
-            RecipeBrowserGUI.setAwaitingSearch(player.getUniqueId());
+            RecipeBrowserGUI.setAwaitingSearch(player.getUniqueId(), true);
             player.sendMessage(ColorUtils.colorize(MessagesConfig.getInstance().getMessage("search_prompt")));
             return;
         }
@@ -300,12 +300,15 @@ public class GUIListener implements Listener {
 
         event.setCancelled(true);
         String input = event.getMessage().trim();
+        boolean fromGUI = RecipeBrowserGUI.wasSearchFromGUI(player.getUniqueId());
         RecipeBrowserGUI.clearSearch(player.getUniqueId());
 
         if ("cancel".equalsIgnoreCase(input)) {
             player.sendMessage(ColorUtils.colorize(MessagesConfig.getInstance().getMessage("search_cancelled")));
-            org.bukkit.Bukkit.getScheduler().runTask(InstaCraft.getInstance(), () ->
-                    RecipeBrowserGUI.openBrowser(player, 0));
+            if (fromGUI) {
+                org.bukkit.Bukkit.getScheduler().runTask(InstaCraft.getInstance(), () ->
+                        RecipeBrowserGUI.openBrowser(player, 0));
+            }
             return;
         }
 
