@@ -1,0 +1,93 @@
+# --------------------------------------------------------------
+#                    InstaCraft Messages
+#                         by SandBytes
+# --------------------------------------------------------------
+# All messages support legacy &-codes and hex colors (&#RRGGBB).
+# Placeholders are listed next to each message.
+# --------------------------------------------------------------
+
+# Prefix prepended to all messages
+prefix: "&6[InstaCraft] &r"
+
+# Whether to use the prefix in messages (true/false)
+use-prefix: true
+
+# General
+usage: "&cUsage: %command%" # %command%
+usage_fav: "&cUsage: /craft fav <add|remove|list|craft> [name] [item]"
+usage_fav_add: "&cUsage: /craft fav add <name> <item>"
+usage_fav_remove: "&cUsage: /craft fav remove <name>"
+usage_fav_craft: "&cUsage: /craft fav craft <name> [amount]"
+usage_alias: "&cUsage: /craft alias <set|remove|list>"
+usage_alias_set: "&cUsage: /craft alias set <alias> <material>"
+usage_alias_remove: "&cUsage: /craft alias remove <alias>"
+usage_recipe: "&cUsage: /craft recipe <item>"
+no_permission: "&cYou don't have permission to use this command (%permission%)" # %permission%
+player_only: "&cThis command is only for players"
+reload_success: "&aConfig reloaded successfully"
+
+# Crafting
+invalid_item: "&cInvalid item: %item%" # %item%
+cannot_craft: "&c%item% cannot be crafted" # %item%
+missing_materials: "&cYou don't have the required materials to craft %item%" # %item%
+crafted_success: "&aYou crafted %amount%x %item%" # %amount%, %item%
+cooldown: "&cPlease wait %time% seconds before crafting again" # %time%
+item_blocked: "&c%item% is not allowed to be crafted" # %item%
+inventory_full: "&eYour inventory was full. Some items were dropped at your feet."
+materials_used: "&7Materials consumed: %materials%" # %materials%
+material_format: "&f%amount%x &e%material%" # %amount%, %material%
+material_separator: "&7, "
+world_restricted: "&cInstaCraft is not available in this world."
+limit_reached: "&cYou've reached your crafting limit for %item%" # %item%
+
+# Economy
+not_enough_money: "&cYou don't have enough money. Cost: %cost%" # %cost%
+money_charged: "&7Charged %cost% for crafting." # %cost%
+
+# XP
+not_enough_xp: "&cYou don't have enough XP. Required: %xp%" # %xp%
+xp_rewarded: "&a+%xp% XP earned from crafting" # %xp%
+xp_deducted: "&7-%xp% XP spent on crafting" # %xp%
+
+# Recipe viewer
+recipe_header: "&6Recipe for %item%:" # %item%
+recipe_ingredient: "&e  - %amount%x %material%" # %amount%, %material%
+
+# Item list
+list_header: "&6Craftable items (page %page%/%total%):" # %page%, %total%
+list_item: "&e  - %item%" # %item%
+list_footer: "&6Use /craft list %next% for the next page" # %next%
+
+# Favorites
+fav_added: "&aFavorite '%name%' set to %item%" # %name%, %item%
+fav_removed: "&aFavorite '%name%' removed" # %name%
+fav_not_found: "&cFavorite '%name%' not found" # %name%
+fav_empty: "&eYou have no saved favorites."
+fav_list_header: "&6&lYour Favorites:"
+fav_list_item: "&e  %name% &7-> &f%item%" # %name%, %item%
+
+# Aliases
+alias_set: "&aAlias '%alias%' set to %item%" # %alias%, %item%
+alias_removed: "&aAlias '%alias%' removed" # %alias%
+alias_empty: "&eNo aliases defined."
+alias_list_header: "&6&lItem Aliases:"
+alias_list_item: "&e  %alias% &7-> &f%item%" # %alias%, %item%
+
+# Admin spy
+spy_enabled: "&aCraft spy enabled. You will see craft notifications."
+spy_disabled: "&cCraft spy disabled."
+spy_notification: "&8[&cSpy&8] &7%player% &ecrafted &f%amount%x &e%item%" # %player%, %amount%, %item%
+
+# Statistics
+stats_header: "&6&lYour Crafting Statistics"
+stats_total: "&e  Total crafts: &f%total%" # %total%
+stats_top_item: "&e  Most crafted: &f%item%" # %item%
+stats_disabled: "&cStatistics are currently disabled."
+
+# Search
+search_prompt: "&eType your search term in chat, or &fcancel &eto go back. &7&o(30 seconds)"
+search_expired: "&cSearch timed out. Returning to browser."
+search_cancelled: "&eSearch cancelled."
+
+# Update checker
+update_available: "&aA new version of InstaCraft is available: %version% (current: %current%)" # %version%, %current%

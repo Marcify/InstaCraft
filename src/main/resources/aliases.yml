@@ -1,0 +1,28 @@
+# --------------------------------------------------------------
+#                    InstaCraft Item Aliases
+#                         by SandBytes
+# --------------------------------------------------------------
+# Define short aliases for material names.
+# Players can use these in /craft instead of full material names.
+#
+# Format:
+#   aliases:
+#     shortname: MATERIAL_NAME
+#
+# Example:
+#   aliases:
+#     dsword: DIAMOND_SWORD
+#     dpick: DIAMOND_PICKAXE
+# --------------------------------------------------------------
+
+aliases:
+  dsword: DIAMOND_SWORD
+  dpick: DIAMOND_PICKAXE
+  daxe: DIAMOND_AXE
+  dshovel: DIAMOND_SHOVEL
+  dhoe: DIAMOND_HOE
+  isword: IRON_SWORD
+  ipick: IRON_PICKAXE
+  iaxe: IRON_AXE
+  ishovel: IRON_SHOVEL
+  ihoe: IRON_HOE

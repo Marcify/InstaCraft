@@ -1,13 +1,17 @@
 name: InstaCraft
 version: ${project.version}
 main: org.sandbytes.instaCraft.InstaCraft
-api-version: '1.13'
+api-version: '1.16'
 author: Marcify
+
+softdepend:
+  - Vault
+  - PlaceholderAPI
 
 commands:
   craft:
     description: "Craft items instantly"
-    usage: "/craft <item>"
+    usage: "/craft <item> [amount]"
     permission: instacraft.use
 
 permissions:
@@ -15,5 +19,20 @@ permissions:
     description: "Allows the player to use the InstaCraft command"
     default: op
   instacraft.reload:
-    description: 'Allows the player to reload the config.yml'
+    description: "Allows the player to reload configs and manage aliases"
+    default: op
+  instacraft.cooldown.bypass:
+    description: "Bypasses the crafting cooldown"
+    default: op
+  instacraft.limits.bypass:
+    description: "Bypasses crafting limits"
+    default: op
+  instacraft.craft.*:
+    description: "Allows crafting all items (per-item permission wildcard)"
+    default: op
+  instacraft.craft.<item>:
+    description: "Allows crafting a specific item (e.g. instacraft.craft.diamond_sword)"
+    default: op
+  instacraft.spy:
+    description: "Allows toggling admin craft spy"
     default: op

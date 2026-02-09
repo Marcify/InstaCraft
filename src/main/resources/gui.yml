@@ -1,0 +1,97 @@
+# --------------------------------------------------------------
+#                    InstaCraft GUI Configuration
+#                         by SandBytes
+# --------------------------------------------------------------
+# Customize the appearance of all plugin GUIs
+# Supports color codes (&a, &b, etc.) and hex colors (&#RRGGBB)
+# --------------------------------------------------------------
+
+# Browser GUI settings
+browser:
+  # Title shown at the top (use %page% and %total% for pagination)
+  title: "&6InstaCraft - Browse (%page%/%total%)"
+  # Title when searching (use %filter% for search term)
+  search-title: "&6Search: %filter% (%page%/%total%)"
+  # Number of rows (3-6, last row is navigation)
+  rows: 6
+
+# Recipe view GUI settings
+recipe-view:
+  # Title for recipe view (use %item% for item name)
+  title: "&6Recipe: %item%"
+  # Number of rows (minimum 3)
+  rows: 3
+  # Slot for the result item
+  result-slot: 13
+  # Slot for the back button
+  back-button-slot: 22
+
+# Navigation items
+navigation:
+  previous-page:
+    enabled: true
+    slot: 45
+    material: ARROW
+    name: "&aPrevious Page"
+    lore:
+      - "&7Click to go back"
+
+  next-page:
+    enabled: true
+    slot: 53
+    material: ARROW
+    name: "&aNext Page"
+    lore:
+      - "&7Click to go forward"
+
+  search:
+    enabled: true
+    slot: 47
+    material: COMPASS
+    name: "&eSearch Items"
+    lore:
+      - "&7Click to search for items"
+      - "&7Type 'cancel' to cancel"
+
+  page-info:
+    enabled: true
+    slot: 49
+    material: BOOK
+    name: "&6Page %page%/%total%"
+    lore: []
+
+  back-button:
+    material: BARRIER
+    name: "&cBack to Browser"
+    lore:
+      - "&7Return to item list"
+
+# Item display in browser
+item-display:
+  # Name format (use %item% for item name)
+  name-format: "&e%item%"
+  lore:
+    - "&7Left-click to view recipe"
+    - "&7Right-click to craft x1"
+  # Show cost in lore if economy is enabled
+  show-cost: true
+  cost-format: "&7Cost: &6%cost%"
+
+# Recipe view item display
+recipe-display:
+  result-name: "&a&lResult: %item%"
+  result-lore:
+    - "&7Amount: &f%amount%"
+    - ""
+    - "&aClick to craft x1"
+  ingredient-name: "&e%item%"
+  ingredient-lore:
+    - "&7Required: &f%amount%"
+
+# Decorative filler items
+filler:
+  enabled: false
+  material: GRAY_STAINED_GLASS_PANE
+  name: " "
+  # Slots to fill (empty = fill all empty nav bar slots)
+  slots: []

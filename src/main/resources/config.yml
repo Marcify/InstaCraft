@@ -6,13 +6,104 @@
 # and I will be glad to fix it as soon as possible. Thank you!
 # --------------------------------------------------------------
 
-# Messages displayed to players
-messages:
-  usage: "&cUsage: %command%"
-  invalid_item: "&cInvalid item: %item%"
-  cannot_craft: "&c%item% cannot be crafted"
-  missing_materials: "&cYou don't have the required materials to craft a %item%"
-  crafted_success: "&aYou crafted a %item%"
-  reload_success: "&aConfig.yml has been reloaded"
-  no_permission: "&cYou don't have permission to use this command (%permission%)"
-  player_only: "&cThis command is only for players"
+# DO NOT CHANGE - used for automatic config migration
+config-version: 2
+
+# Cooldown in seconds between crafts (0 to disable)
+# Players with instacraft.cooldown.bypass permission skip this
+cooldown: 0
+
+# Maximum amount a player can craft at once
+max-craft-amount: 64
+
+# Item filter mode: "blacklist" or "whitelist"
+# blacklist = all items allowed EXCEPT those listed
+# whitelist = ONLY listed items are allowed
+filter-mode: "blacklist"
+
+# List of items for the filter (use material names, e.g. DIAMOND_SWORD)
+filtered-items: []
+
+# Log all crafts to plugins/InstaCraft/crafting.log
+crafting-log: false
+
+# Log rotation for crafting.log
+log-rotation:
+  enabled: false
+  # Max file size in MB before rotating
+  max-size-mb: 10
+
+# Supported recipe types: CRAFTING, FURNACE, SMITHING, STONECUTTING
+enabled-recipe-types:
+  - CRAFTING
+  - FURNACE
+  - SMITHING
+  - STONECUTTING
+
+# Sound played when an item is crafted
+craft-sound:
+  enabled: true
+  sound: "BLOCK_ANVIL_USE"
+  volume: 0.5
+  pitch: 1.0
+
+# Particle effect on successful craft
+craft-particles:
+  enabled: true
+
+# Economy integration (requires Vault + an economy plugin)
+economy:
+  enabled: false
+  default-cost: 0.0
+  item-costs:
+    DIAMOND_SWORD: 50.0
+    DIAMOND_PICKAXE: 45.0
+
+# XP cost or reward per craft
+# mode: "cost" = deduct XP, "reward" = grant XP
+xp:
+  enabled: false
+  mode: "reward"
+  default-amount: 0
+  # Per-item XP overrides
+  item-amounts:
+    DIAMOND_SWORD: 10
+    IRON_PICKAXE: 5
+
+# World restrictions - disable InstaCraft in certain worlds
+# mode: "blacklist" = blocked in listed worlds, "whitelist" = only allowed in listed worlds
+world-restrictions:
+  enabled: false
+  mode: "blacklist"
+  worlds:
+    - "world_nether"
+    - "world_the_end"
+
+# Admin spy - notify admins when players craft watched items
+spy:
+  enabled: false
+  # Leave empty to watch all items, or list specific materials
+  # watch-items: []
+  watch-items:
+    - DIAMOND_SWORD
+    - NETHERITE_SWORD
+
+# Crafting limits - restrict how many of each item a player can craft per period
+limits:
+  enabled: false
+  # Reset interval in minutes (1440 = 24 hours)
+  reset-minutes: 1440
+  # Default limit for all items (0 = unlimited)
+  default-limit: 0
+  # Per-item limit overrides
+  item-limits:
+    DIAMOND_SWORD: 5
+    NETHERITE_INGOT: 2
+
+# Per-player crafting statistics
+statistics:
+  enabled: true
+
+# Update checker
+update-checker:
+  enabled: true

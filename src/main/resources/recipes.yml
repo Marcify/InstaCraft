@@ -1,0 +1,27 @@
+# --------------------------------------------------------------
+#                    InstaCraft Custom Recipes
+#                         by SandBytes
+# --------------------------------------------------------------
+# Define custom recipes that only work through /craft.
+# These are separate from vanilla server recipes.
+#
+# Format:
+#   recipes:
+#     recipe-name:
+#       result: MATERIAL_NAME
+#       amount: 1
+#       ingredients:
+#         MATERIAL_NAME: amount
+#         MATERIAL_NAME: amount
+#
+# Example:
+#   recipes:
+#     magic-diamond:
+#       result: DIAMOND
+#       amount: 2
+#       ingredients:
+#         COAL: 64
+#         GOLD_INGOT: 8
+# --------------------------------------------------------------
+
+recipes: {}
